@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd ../.. && pnpm run build --filter=@agapehub/donor",
+  "installCommand": "cd ../.. && pnpm install",
+  "outputDirectory": "apps/donor/.next"
+}
