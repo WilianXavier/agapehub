@@ -42,12 +42,12 @@ Contas necessárias:
 | Etapa | Descrição | Status |
 |---|---|---|
 | **0 — Infraestrutura** | Monorepo, GitHub, Vercel, dois apps no ar | ✅ Concluído |
-| **1 — Banco de Dados** | Neon + Prisma, schema de campanhas | 🔴 **PRIORIDADE ATUAL** |
+| **1 — Banco de Dados** | Neon + Prisma, schema de campanhas | ✅ **Concluído** |
 | **2 — Autenticação** | NextAuth v5, Magic Link, OAuth | ⏳ Pendente |
 | **3 — Trial e Acesso** | Lógica de plano, banner trial | 🗺️ Roadmap |
 | **4 — Paywall e Limites** | PaywallGate, limites por plano | 🗺️ Roadmap |
 | **5 — Stripe** | Checkout, webhook, Customer Portal | ⏳ Pendente |
-| **6 — Features P1** | CRUD campanhas, cockpit financeiro | 🔴 Começa após Etapa 1 |
+| **6 — Features P1** | CRUD campanhas, cockpit financeiro | 🟡 Em andamento |
 | **7 — Landing Page** | `doe.agapehub.com.br/explore` | 🗺️ Roadmap |
 | **8 — Storybook** | Design system completo e documentado | ✅ Base concluída |
 
@@ -68,7 +68,7 @@ Contas necessárias:
 
 ---
 
-### ETAPA 1 — BANCO DE DADOS (Neon + Prisma) 🔴 PRIORIDADE
+### ETAPA 1 — BANCO DE DADOS (Neon + Prisma) ✅ CONCLUÍDO
 
 Criar o schema Prisma com as entidades iniciais do produto:
 

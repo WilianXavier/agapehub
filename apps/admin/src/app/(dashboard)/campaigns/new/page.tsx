@@ -1,12 +1,16 @@
-import { PagePlaceholder } from "@/components/PagePlaceholder";
+import { db } from "@/lib/db";
+import { CampaignWizard } from "@/components/campaigns/CampaignWizard";
+import { redirect } from "next/navigation";
 
-export default function NewCampaignPage() {
+export default async function NewCampaignPage() {
+  const org = await db.organization.findFirst();
+
+  if (!org) redirect("/campaigns");
+
   return (
-    <PagePlaceholder
-      title="Criar Campanha"
-      description="Wizard passo-a-passo para criação de uma nova campanha de doações: nome, meta, prazo, método de pagamento e página pública."
-      icon="✨"
-      tags={["Wizard", "Meta", "Prazo", "Pix", "Cartão"]}
-    />
+    <div className="mx-auto max-w-2xl px-4 py-8">
+      <h1 className="text-2xl font-semibold text-fg mb-6">Nova Campanha</h1>
+      <CampaignWizard organizationId={org.id} />
+    </div>
   );
 }
