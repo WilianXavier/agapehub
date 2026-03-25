@@ -10,97 +10,107 @@
   --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 
   /* ── Brand ÁgapeHub — Nível 2 / Base AgapeHub [00] ────────────── */
-  --color-brand:         rgb(58 92 204);    /* primary-main */
-  --color-brand-hover:   rgb(52 81 178);    /* landing/solid/main */
-  --color-brand-active:  rgb(42 63 138);
-  --color-brand-dark:    rgb(16 29 70);     /* landing/solid/dark */
-  --color-brand-subtle:  rgb(230 237 254);  /* landing/borders/light */
-  --color-brand-muted:   rgb(174 192 245);  /* landing/borders/medium */
+  --color-brand:        rgb(58 92 204);    /* primary-main       */
+  --color-brand-hover:  rgb(52 81 178);    /* landing/solid/main */
+  --color-brand-active: rgb(42 63 138);
+  --color-brand-dark:   rgb(16 29 70);     /* landing/solid/dark */
+  --color-brand-subtle: rgb(230 237 254);  /* landing/borders/light */
+  --color-brand-muted:  rgb(174 192 245);  /* landing/borders/medium */
+  --color-brand-fg:     rgb(62 99 221);    /* landing/text/light */
 
   /* ── Universal Identity (cross-org constant) ──────────────────── */
   --color-universal: rgb(34 28 26);
 
-  /* ── Backgrounds — SaaS/Background ──────────────────────────────
-     Layers */
-  --color-canvas:           rgb(252 252 252);    /* main */
-  --color-surface:          rgb(245 245 245);    /* secondary */
-  --color-surface-2:        rgb(240 240 240);    /* helper */
-  --color-surface-3:        rgb(232 232 232);    /* helper 2 */
-  --color-surface-4:        rgb(224 224 224);    /* helper 3 */
-  --color-surface-inv:      rgb(35 35 35);       /* preview / dark */
-  --color-surface-solid:    rgb(51 51 51);       /* solid */
-  /* Overlays */
+  /* ── Backgrounds — SaaS/Background/Layers ────────────────────── */
+  --color-canvas:        rgb(252 252 252);    /* main */
+  --color-surface:       rgb(245 245 245);    /* secondary */
+  --color-surface-2:     rgb(240 240 240);    /* helper */
+  --color-surface-3:     rgb(232 232 232);    /* helper 2 */
+  --color-surface-4:     rgb(224 224 224);    /* helper 3 */
+  --color-surface-inv:   rgb(35 35 35);       /* preview / dark */
+  --color-surface-solid: rgb(51 51 51);       /* solid */
+
+  /* ── Overlays ─────────────────────────────────────────────────── */
   --color-overlay:          rgba(0 0 0 / 0.56);
   --color-overlay-light:    rgba(0 0 0 / 0.22);
   --color-overlay-alpha:    rgba(0 0 0 / 0.05);
   --color-overlay-disabled: rgba(0 0 0 / 0.03);
-  /* Feedback Backgrounds */
-  --color-bg-success:       rgba(2 179 2 / 0.08);
-  --color-bg-info:          rgba(2 128 255 / 0.07);
-  --color-bg-warning:       rgba(255 221 2 / 0.09);
-  --color-bg-error:         rgba(255 1 1 / 0.06);
-  --color-bg-success-solid: rgb(41 124 59);
-  --color-bg-info-solid:    rgb(0 106 220);
-  --color-bg-warning-solid: rgb(148 104 0);
-  --color-bg-error-solid:   rgb(205 43 49);
-  /* Thematic Backgrounds */
-  --color-bg-tithe:         rgba(146 0 237 / 0.05);
-  --color-bg-offer:         rgba(240 1 148 / 0.06);
-  --color-bg-campaign:      rgba(255 108 3 / 0.09);
-  --color-bg-donors:        rgba(60 0 255 / 0.05);
-  --color-bg-tithe-solid:   rgb(121 58 175);
-  --color-bg-offer-solid:   rgb(205 29 141);
-  --color-bg-campaign-solid: rgb(189 75 0);
-  --color-bg-donors-solid:  rgb(87 70 175);
 
-  /* ── Foreground / Text — SaaS/Accessibility text ──────────────── */
-  --color-fg:          rgb(35 35 35);    /* primary */
+  /* ── Foreground / Text ─────────────────────────────────────────
+     SaaS/Accessibility text/Reading Hierarchy */
+  --color-fg:          rgb(35 35 35);    /* primary   */
   --color-fg-2:        rgb(51 51 51);    /* secondary */
-  --color-fg-3:        rgb(77 77 77);    /* tertiary */
+  --color-fg-3:        rgb(77 77 77);    /* tertiary  */
   --color-fg-muted:    rgb(141 141 141); /* placeholder */
-  --color-fg-disabled: rgb(206 206 206); /* disabled */
+  --color-fg-disabled: rgb(206 206 206); /* disabled  */
   --color-fg-inv:      rgb(252 252 252); /* inverted / on-dark */
-  /* Feedback Text */
-  --color-text-success: rgb(41 124 59);
-  --color-text-info:    rgb(0 106 220);
-  --color-text-warning: rgb(148 104 0);
-  --color-text-error:   rgb(220 61 67);
-  /* Thematic Text */
-  --color-text-tithe:    rgb(132 69 188);
-  --color-text-offer:    rgb(210 49 151);
-  --color-text-campaign: rgb(237 95 0);
-  --color-text-donors:   rgb(100 79 193);
 
-  /* ── Borders — SaaS/Borders and separators ────────────────────── */
-  --color-border:   rgb(217 217 217);    /* tertiary / default */
-  --color-border-2: rgb(206 206 206);    /* secondary */
-  --color-border-3: rgb(141 141 141);    /* primary / strong */
-  /* Feedback Borders */
-  --color-border-success: rgb(61 154 80);
-  --color-border-info:    rgb(0 129 241);
-  --color-border-warning: rgb(148 104 0);
-  --color-border-error:   rgb(220 61 67);
-  /* Thematic Borders */
-  --color-border-tithe:    rgb(132 69 188);
-  --color-border-offer:    rgb(210 49 151);
-  --color-border-campaign: rgb(237 95 0);
-  --color-border-donors:   rgb(100 79 193);
-
-  /* ── Solid Colors / Icons ─────────────────────────────────────── */
-  --color-success: rgb(61 154 80);
-  --color-info:    rgb(0 129 241);
-  --color-warning: rgb(148 104 0);
-  --color-error:   rgb(220 61 67);
-  --color-tithe:   rgb(132 69 188);
-  --color-offer:   rgb(210 49 151);
-  --color-campaign: rgb(237 95 0);
-  --color-donors:  rgb(100 79 193);
+  /* ── Borders ─────────────────────────────────────────────────── */
+  --color-border:   rgb(217 217 217);  /* tertiary / default */
+  --color-border-2: rgb(206 206 206);  /* secondary */
+  --color-border-3: rgb(141 141 141);  /* primary / strong */
 
   /* ── Interactive — Neutral Actions ───────────────────────────── */
   --color-neutral-default:  rgb(252 252 252);
   --color-neutral-hover:    rgb(240 240 240);
   --color-neutral-selected: rgb(232 232 232);
   --color-neutral-pressed:  rgb(224 224 224);
+
+  /* ── Feedback ─────────────────────────────────────────────────
+     Padrão: --color-{status}         → ícone / borda sólido
+             --color-{status}-tint    → background translúcido
+             --color-{status}-solid   → background sólido escuro
+             --color-{status}-fg      → texto acessível
+             --color-{status}-border  → borda      */
+  --color-success:        rgb(61 154 80);
+  --color-success-tint:   rgba(2 179 2 / 0.08);
+  --color-success-solid:  rgb(41 124 59);
+  --color-success-fg:     rgb(41 124 59);
+  --color-success-border: rgb(61 154 80);
+
+  --color-info:        rgb(0 129 241);
+  --color-info-tint:   rgba(2 128 255 / 0.07);
+  --color-info-solid:  rgb(0 106 220);
+  --color-info-fg:     rgb(0 106 220);
+  --color-info-border: rgb(0 129 241);
+
+  --color-warning:        rgb(148 104 0);
+  --color-warning-tint:   rgba(255 221 2 / 0.09);
+  --color-warning-solid:  rgb(148 104 0);
+  --color-warning-fg:     rgb(148 104 0);
+  --color-warning-border: rgb(148 104 0);
+
+  --color-error:        rgb(220 61 67);
+  --color-error-tint:   rgba(255 1 1 / 0.06);
+  --color-error-solid:  rgb(205 43 49);
+  --color-error-fg:     rgb(220 61 67);
+  --color-error-border: rgb(220 61 67);
+
+  /* ── Thematic / Tipos de doação ───────────────────────────────
+     Mesmo padrão do feedback acima */
+  --color-tithe:        rgb(132 69 188);
+  --color-tithe-tint:   rgba(146 0 237 / 0.05);
+  --color-tithe-solid:  rgb(121 58 175);
+  --color-tithe-fg:     rgb(132 69 188);
+  --color-tithe-border: rgb(132 69 188);
+
+  --color-offer:        rgb(210 49 151);
+  --color-offer-tint:   rgba(240 1 148 / 0.06);
+  --color-offer-solid:  rgb(205 29 141);
+  --color-offer-fg:     rgb(210 49 151);
+  --color-offer-border: rgb(210 49 151);
+
+  --color-campaign:        rgb(237 95 0);
+  --color-campaign-tint:   rgba(255 108 3 / 0.09);
+  --color-campaign-solid:  rgb(189 75 0);
+  --color-campaign-fg:     rgb(237 95 0);
+  --color-campaign-border: rgb(237 95 0);
+
+  --color-donors:        rgb(100 79 193);
+  --color-donors-tint:   rgba(60 0 255 / 0.05);
+  --color-donors-solid:  rgb(87 70 175);
+  --color-donors-fg:     rgb(100 79 193);
+  --color-donors-border: rgb(100 79 193);
 
   /* ── Data Visualization / Charts ─────────────────────────────── */
   --color-chart-1: rgb(0 37 77);
@@ -113,8 +123,8 @@
   --color-chart-8: rgb(225 240 255);
 
   /* ── Landing Page ─────────────────────────────────────────────── */
-  --color-landing-bg:      rgb(253 253 254);
-  --color-landing-bg-2:    rgb(248 250 255);
+  --color-landing-bg:   rgb(253 253 254);
+  --color-landing-bg-2: rgb(248 250 255);
 
   /* ── Radius (010 Radius Semantics — modo Compact/Mobile) ─────── */
   --radius-xs:   0.125rem;  /* 2px  → 4px  desktop */
