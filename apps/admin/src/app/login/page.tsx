@@ -44,18 +44,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-landing-bg flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <Logo size="lg" variant="full" />
           </div>
-          <p className="text-gray-500 text-sm">Painel Administrativo</p>
+          <p className="text-fg-muted text-sm">Painel Administrativo</p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-          <h2 className="text-lg font-semibold text-gray-900">Entrar como</h2>
-          <p className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
+        <div className="bg-canvas rounded-2xl border border-border shadow-sm p-6 space-y-4">
+          <h2 className="text-lg font-semibold text-fg">Entrar como</h2>
+          <p className="text-xs text-warning bg-warning-tint border border-warning-border rounded-xl px-3 py-2">
             🔧 Modo de desenvolvimento — selecione um perfil para simular o login.
           </p>
 
@@ -66,18 +66,18 @@ export default function LoginPage() {
                 onClick={() => setSelected(role.value)}
                 className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all ${
                   selected === role.value
-                    ? "border-violet-500 bg-violet-50"
-                    : "border-gray-100 hover:border-gray-200"
+                    ? "border-brand bg-brand-subtle"
+                    : "border-border hover:border-border-2"
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{role.icon}</span>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{role.label}</p>
-                    <p className="text-xs text-gray-500">{role.description}</p>
+                    <p className="text-sm font-medium text-fg">{role.label}</p>
+                    <p className="text-xs text-fg-muted">{role.description}</p>
                   </div>
                   {selected === role.value && (
-                    <span className="ml-auto text-violet-500">✓</span>
+                    <span className="ml-auto text-brand">✓</span>
                   )}
                 </div>
               </button>
@@ -87,7 +87,7 @@ export default function LoginPage() {
           <button
             onClick={handleLogin}
             disabled={loading}
-            className="w-full py-3 bg-violet-600 text-white font-medium rounded-xl hover:bg-violet-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full py-3 bg-brand text-fg-inv font-medium rounded-xl hover:bg-brand-hover transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {loading && (
               <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
@@ -99,7 +99,7 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-6">
+        <p className="text-center text-xs text-fg-disabled mt-6">
           ágapehub © {new Date().getFullYear()} — Plataforma de doações para igrejas
         </p>
       </div>
