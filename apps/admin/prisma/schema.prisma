@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── Organização ─────────────────────────────────────
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  logoUrl   String?
+  plan      Plan     @default(FREE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members   Member[]
+  campaigns Campaign[]
+}
+
+// ── Membro da organização ────────────────────────────
+model Member {
+  id             String     @id @default(cuid())
+  role           MemberRole @default(LEADER)
+  organizationId String
+  userId         String
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, userId])
+}
+
+// ── Usuário ──────────────────────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+
+  memberships Member[]
+  accounts    Account[]
+  sessions    Session[]
+}
+
+// ── Campanha ─────────────────────────────────────────
+model Campaign {
+  id              String         @id @default(cuid())
+  slug            String
+  title           String
+  description     String?
+  goalAmount      Decimal        @db.Decimal(12, 2)
+  collectedAmount Decimal        @default(0) @db.Decimal(12, 2)
+  type            CampaignType   @default(CAMPAIGN)
+  status          CampaignStatus @default(DRAFT)
+  startsAt        DateTime?
+  endsAt          DateTime?
+  coverUrl        String?
+  organizationId  String
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  donations    Donation[]
+
+  @@unique([organizationId, slug])
+}
+
+// ── Doação ────────────────────────────────────────────
+model Donation {
+  id         String         @id @default(cuid())
+  amount     Decimal        @db.Decimal(12, 2)
+  status     DonationStatus @default(PENDING)
+  method     PaymentMethod  @default(PIX)
+  recurring  Boolean        @default(false)
+  donorName  String?
+  donorEmail String?
+  campaignId String
+  createdAt  DateTime       @default(now())
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+}
+
+// ── Auth.js (para Etapa 2) ────────────────────────────
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @id
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// ── Enums ─────────────────────────────────────────────
+enum Plan {
+  FREE
+  TRIAL
+  PRO
+}
+
+enum MemberRole {
+  ADMIN
+  TREASURER
+  LEADER
+}
+
+enum CampaignType {
+  TITHE
+  OFFER
+  CAMPAIGN
+}
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  FINISHED
+  ARCHIVED
+}
+
+enum DonationStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  PIX
+  CREDIT_CARD
+  BOLETO
+}
