@@ -659,6 +659,28 @@ Cadastro →  TRIAL (14 dias, acesso total)
 
 ---
 
+## 🎨 FLUXO DE DESIGN E IA (Figma MCP Skills)
+
+O ÁgapeHub utiliza integração direta entre IA (Claude Code / OpenCode) e o Figma via protocolo MCP. Para garantir a integridade do Design System e evitar código hardcoded (ex: cores hexadecimais soltas ou espaçamentos arbitrários), **é obrigatório o uso das seguintes skills ao manipular UI:**
+
+### 1. Skill: `figma-use` (Core API & Regras de Engenharia)
+Sempre que a IA precisar ler ou escrever diretamente no canvas do Figma, ela deve respeitar as regras nativas da API:
+* **Cores:** Utilizar sempre a escala `0-1` (ex: `{r: 1, g: 0, b: 0}` para vermelho), nunca `0-255`.
+* **Fontes:** É obrigatório aguardar o carregamento da fonte (`await figma.loadFontAsync`) antes de qualquer manipulação de texto.
+* **Saída de Dados:** Usar `return` para extrair IDs e dados (ex: `return { createdNodeIds: [...] }`). Nunca usar `console.log()` ou `figma.notify()`.
+* **Atomicidade:** Se um script falhar, a IA deve parar, analisar o erro (usando `Youtube`), corrigir e tentar novamente.
+
+### 2. Skill: `figma-generate-design` (Construção via Design System)
+Para criar ou atualizar telas inteiras a partir do código ou de descrições, a IA atua como Arquiteta de Interface:
+* **Proibido Hardcoding:** É estritamente proibido desenhar formas primitivas com valores fixos. A IA deve usar `search_design_system` para encontrar e aplicar as variáveis reais do ÁgapeHub (cores, espaçamentos, radii).
+* **Componentes Reais:** Deve-se importar e instanciar componentes existentes (ex: botões, cards) e alterar suas propriedades (`setProperties()`).
+* **Workflow Incremental:** A construção de telas complexas deve ser feita seção por seção (ex: Header primeiro, depois Grid).
+* **Validação Visual:** Após cada seção construída, a IA deve usar `get_screenshot` para verificar se não há textos cortados ou elementos sobrepostos.
+
+> **Prompt Padrão de UI:** "Use as skills `figma-use` e `figma-generate-design` para ler a tela X, mapear as variáveis do Design System e gerar o componente React correspondente sem valores hardcoded."
+
+---
+
 ## REFERÊNCIAS
 
 | Recurso | URL |
